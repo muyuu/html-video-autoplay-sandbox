@@ -1,10 +1,13 @@
 var videoElement;
+var toggleMuteButton;
 var allowAutoplayWithSound = false;
 var allowAutoplayOnlyMuted = false;
 
 function init() {
   videoElement = document.getElementById('videoElement');
+  toggleMuteButton = document.getElementById('toggleMuteButton');
   checkAutoPlaySupport();
+  setMuteButton();
 }
 
 function checkAutoplay(onSuccess, onFail) {
@@ -51,6 +54,22 @@ function onMutedAutoplaySuccess() {
 function onMutedAutoplayFail() {
     allowAutoplayOnlyMuted = false;
     onResolveCheckAutoplay();
+}
+
+function setMuteButton() {
+    toggleMuteButton.addEventListener('click', onClickToggleMuteButton);
+}
+
+function onClickToggleMuteButton() {
+    var muted = videoElement.muted;
+
+    if (muted) {
+        videoElement.volume = 1;
+        videoElement.muted = false;
+    } else {
+        videoElement.volume = 0;
+        videoElement.muted = true;
+    }
 }
 
 init();
