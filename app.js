@@ -25,8 +25,7 @@ function checkAutoPlaySupport() {
 }
 
 function checkMutedAutoplaySupport() {
-    videoElement.volume = 0;
-    videoElement.muted = true;
+    volMin();
     checkAutoplay(onMutedAutoplaySuccess, onMutedAutoplayFail);
 }
 
@@ -53,6 +52,7 @@ function onMutedAutoplaySuccess() {
 
 function onMutedAutoplayFail() {
     allowAutoplayOnlyMuted = false;
+    volMax();
     onResolveCheckAutoplay();
 }
 
@@ -64,12 +64,19 @@ function onClickToggleMuteButton() {
     var muted = videoElement.muted;
 
     if (muted) {
-        videoElement.volume = 1;
-        videoElement.muted = false;
+        volMin();
     } else {
-        videoElement.volume = 0;
-        videoElement.muted = true;
+        volMax();
     }
+}
+
+function volMin() {
+    videoElement.volume = 0;
+    videoElement.muted = true;
+}
+function volMax() {
+    videoElement.volume = 1;
+    videoElement.muted = false;
 }
 
 init();
