@@ -1,11 +1,13 @@
 var videoElement;
 var toggleMuteButton;
+var resultElement;
 var allowAutoplayWithSound = false;
 var allowAutoplayOnlyMuted = false;
 
 function init() {
   videoElement = document.getElementById('videoElement');
   toggleMuteButton = document.getElementById('toggleMuteButton');
+  resultElement = document.getElementById('result');
   checkAutoPlaySupport();
   setMuteButton();
 }
@@ -30,8 +32,10 @@ function checkMutedAutoplaySupport() {
 }
 
 function onResolveCheckAutoplay() {
-    console.log('allow autoplay? ' + allowAutoplayWithSound + ';');
-    console.log('allow muted autoplay? ' + allowAutoplayOnlyMuted + ';');
+    var result = '';
+    result += 'allow autoplay? ' + allowAutoplayWithSound + ";\n";
+    result += 'allow muted autoplay? ' + allowAutoplayOnlyMuted + ";\n";
+    resultElement.innerText = result;
 }
 
 function onAutoplayWithSoundSuccess() {
