@@ -7,8 +7,14 @@
             <source src="./check-autoplay-composed.mp4"></source>
         </video>
         <button id="toggleMuteButton">toggle mute</button>
-        <div id="result" class="result"></div>
+        <div class="result">
+            <div id="result"></div>
+        </div>
+        <div class="result">
+            <div id="result-for-can-autoplay"></div>
+        </div>
     </div>
     
+    <script src="./node_modules/can-autoplay/build/can-autoplay.js"></script>
     <script src="./app.js"></script>
 </body>
