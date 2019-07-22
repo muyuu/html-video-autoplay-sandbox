@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/muyuu/html-video-autoplay-sandbox/issues"
   },
-  "homepage": "https://github.com/muyuu/html-video-autoplay-sandbox#readme"
+  "homepage": "https://github.com/muyuu/html-video-autoplay-sandbox#readme",
+  "devDependencies": {
+    "can-autoplay": "^3.0.0"
+  }
 }
