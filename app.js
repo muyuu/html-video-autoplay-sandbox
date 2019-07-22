@@ -85,7 +85,7 @@ function volMax() {
 
 function checkAutoPlaySupportByCanAutoplay() {
     // timeoutがデフォルトだとエラーになりがち
-    canAutoplay.video({timeout: 1000}).then((r) => {
+    canAutoplay.video({timeout: 1000}).then(function(r) {
         console.log(r);
         if (r.result === true) {
             // Can autoplay
@@ -93,7 +93,7 @@ function checkAutoPlaySupportByCanAutoplay() {
             onResolveCheckAutoplay(result.allow, resultElementForCanAutoplay);
         } else {
             // muted でならいけるか判定
-            canAutoplay.video({ muted: true }).then((r) => {
+            canAutoplay.video({ muted: true }).then(function(r) {
                 if (r.result === true) {
                     // Can autoplay
                     onResolveCheckAutoplay(result.onlyMuted, resultElementForCanAutoplay);
